@@ -1,7 +1,9 @@
-﻿namespace LibraryManagement.Exercise.Three.Services.Abstract
+﻿using LibraryManagement.Exercise.Three.Models;
+
+namespace LibraryManagement.Exercise.Three.Services.Abstract
 {
     public interface IShelfService
     {
-        void InsertShelf();
+        void InsertShelf(Shelf shelf);
     }
 }

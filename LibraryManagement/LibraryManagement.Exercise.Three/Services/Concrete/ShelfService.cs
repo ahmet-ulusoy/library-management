@@ -1,12 +1,18 @@
-﻿using LibraryManagement.Exercise.Three.Services.Abstract;
+﻿using LibraryManagement.Exercise.Three.Models;
+using LibraryManagement.Exercise.Three.Services.Abstract;
 
 namespace LibraryManagement.Exercise.Three.Services.Concrete
 {
     public class ShelfService : IShelfService
     {
-        public void InsertShelf()
+        public void InsertShelf(Shelf shelf)
         {
-            throw new NotImplementedException();
+            if (shelf == null)
+            {
+                throw new ArgumentNullException(nameof(shelf), $"{nameof(shelf)} is null.");
+            }
+
+            Program.Shelves.Add(shelf);
         }
     }
 }

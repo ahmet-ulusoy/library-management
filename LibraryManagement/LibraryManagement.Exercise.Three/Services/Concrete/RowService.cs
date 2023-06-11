@@ -1,12 +1,18 @@
-﻿using LibraryManagement.Exercise.Three.Services.Abstract;
+﻿using LibraryManagement.Exercise.Three.Models;
+using LibraryManagement.Exercise.Three.Services.Abstract;
 
 namespace LibraryManagement.Exercise.Three.Services.Concrete
 {
     public class RowService : IRowService
     {
-        public void InsertRow()
+        public void InsertRow(Row row)
         {
-            throw new NotImplementedException();
+            if (row == null)
+            {
+                throw new ArgumentNullException(nameof(row), $"{nameof(row)} is null.");
+            }
+
+            Program.Rows.Add(row);
         }
     }
 }

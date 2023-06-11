@@ -1,7 +1,9 @@
-﻿namespace LibraryManagement.Exercise.Three.Services.Abstract
+﻿using LibraryManagement.Exercise.Three.Models;
+
+namespace LibraryManagement.Exercise.Three.Services.Abstract
 {
     public interface IBookService
     {
-        void InsertBook();
+        void InsertBook(Book book);
     }
 }
