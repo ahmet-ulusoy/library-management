@@ -5,9 +5,30 @@ namespace LibraryManagement.Exercise.Two.Services.Concrete
 {
     public class BookService : IBookService
     {
+        // I couldn't understand the meaning of stars therefore I trimmed them in strings
+        // If we might use a database context in that case I could use EF.Functions.Like
         public List<Book> FindBooks(string searchString)
         {
-            throw new NotImplementedException();
+            var searchStrings = searchString.Split('&');
+
+            var searchFor = searchStrings.First().TrimStart(' ', '*').TrimEnd(' ', '*').ToUpperInvariant();
+
+            var tempBooks = Program.Books.Where(p =>
+                    p.Title.ToUpperInvariant().Contains(searchFor)
+                    || p.Authors.Any(q => q.ToUpperInvariant().Contains(searchFor))
+                    || p.Publisher.ToUpperInvariant().Contains(searchFor)
+                    || p.PublicationYear.ToString().Contains(searchFor)).ToList();
+
+            if (searchStrings.Length == 1)
+            {
+                return tempBooks;
+            }
+            else
+            {
+                var newSearchString = searchStrings.Length > 1 ? string.Concat(searchStrings.Skip(1)) : string.Empty;
+
+                return tempBooks.Intersect(FindBooks(newSearchString)).ToList();
+            }
         }
 
         // If I were you I might try serialize/desearilize objects with json

@@ -36,6 +36,30 @@ namespace LibraryManagement.Exercise.Two
                 {
                     Console.WriteLine(JsonConvert.SerializeObject(book));
                 }
+
+                var firstSearchCriteria = "*20*";
+
+                var firstSearchFoundBooks = _bookService.FindBooks(firstSearchCriteria);
+
+                Console.WriteLine($"Search Criteria: {firstSearchCriteria}");
+
+                foreach (var book in firstSearchFoundBooks)
+                {
+                    Console.WriteLine(JsonConvert.SerializeObject(book));
+                }
+
+                Console.WriteLine();
+
+                var secondSearchCriteria = "*20* & *peter*";
+
+                Console.WriteLine($"Search Criteria: {secondSearchCriteria}");
+
+                var secondSearchFoundBooks = _bookService.FindBooks(secondSearchCriteria);
+
+                foreach (var book in secondSearchFoundBooks)
+                {
+                    Console.WriteLine(JsonConvert.SerializeObject(book));
+                }
             }
         }
 
