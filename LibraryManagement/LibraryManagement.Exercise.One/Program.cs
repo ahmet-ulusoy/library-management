@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to library manager");
+            Console.WriteLine("Welcome to library manager, exercise one");
         }
     }
 }
