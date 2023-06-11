@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Enumerations\" />
-    <Folder Include="Services\Abstract\" />
-    <Folder Include="Services\Concrete\" />
   </ItemGroup>
 
 </Project>
