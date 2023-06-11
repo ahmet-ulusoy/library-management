@@ -1,10 +1,10 @@
 ﻿namespace LibraryManagement.Exercise.One
 {
-    internal class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Welcome to library manager");
         }
     }
 }
