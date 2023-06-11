@@ -22,6 +22,8 @@ namespace LibraryManagement.Exercise.Two
             RegisterServices();
 
             GetBookService();
+
+            var input = ReadFileContentAsString();
         }
 
         private static void RegisterServices()
@@ -42,6 +44,19 @@ namespace LibraryManagement.Exercise.Two
                     throw new InvalidOperationException($"{nameof(_bookService)} is null.");
                 }
             }
+        }
+
+        private static string ReadFileContentAsString()
+        {
+            var file = new StreamReader(Path.Combine("..\\..\\..", "Input.txt"));
+
+            var fileAsString = file.ReadToEnd();
+
+            file.Close();
+
+            file.Dispose();
+
+            return fileAsString;
         }
     }
 }
