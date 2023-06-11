@@ -2,6 +2,7 @@
 using LibraryManagement.Exercise.Two.Services.Abstract;
 using LibraryManagement.Exercise.Two.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace LibraryManagement.Exercise.Two
 {
@@ -24,6 +25,18 @@ namespace LibraryManagement.Exercise.Two
             GetBookService();
 
             var input = ReadFileContentAsString();
+
+            if (_bookService != null)
+            {
+                Books = _bookService.ReadBooks(input);
+
+                Console.WriteLine($"Read Books: ");
+
+                foreach (var book in Books)
+                {
+                    Console.WriteLine(JsonConvert.SerializeObject(book));
+                }
+            }
         }
 
         private static void RegisterServices()
